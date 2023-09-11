@@ -1,2 +1,5 @@
 # ignore all text files
 *.txt
+
+# ignore the database with user info
+Users.db
