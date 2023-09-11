@@ -16,7 +16,7 @@ class Bank:
     def __init__(self):
         self.db = []
 
-    def load_bank_details(self):
+    def loadBankDetails(self):
         # get bank details of every user
         user_details = FileFuncs.ReadFile("Bank_details.txt")
 
@@ -32,8 +32,10 @@ class Bank:
             
             
             
-    def add_user(self, username: str, password: str):
+    def addUser(self, username: str, password: str):
         FileFuncs.AppendtoFile("Bank_details.txt", f"{username} {password} 0")
+
+    def update_user
 
 
 
