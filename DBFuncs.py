@@ -132,24 +132,5 @@ class DBFuncs:
         return "".join(f":{field[0]}, " for field in self.fields)[:-2]
 
 
-DbObj = DBFuncs("Users.db")
-
-DbObj.addField("USERNAME", "text", True)
-DbObj.addField("PASSWORD", "text")
-DbObj.addField("BALANCE", "real")
-
-DbObj.addTableName("USERS")
-
-#DbObj.addTable("USERS")
-
-
-DbObj.addRecord("TestUsername", "TestPassword", 4.56)
-
-
-all_records = DbObj.FetchAllRecords()
-
-print(all_records)
-
-
 
 
