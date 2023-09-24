@@ -48,12 +48,12 @@ class DBFuncs:
         # create cursor
         cursor = conn.cursor()
 
-        print(fieldvals, type(fieldvals))
-        print(f"INSERT INTO {self.tablename} VALUES ({self.__FormatFieldParam()})")
-        print(self.__autoMakeDictArg(fieldvals))
+        #print(fieldvals, type(fieldvals))
+        #print(f"INSERT INTO {self.tableName} VALUES ({self.__FormatFieldParam()})")
+        #print(self.__autoMakeDictArg(fieldvals))
 
         # execute SQL statement
-        cursor.execute(f"INSERT INTO {self.tablename} VALUES ({self.__FormatFieldParam()})", self.__autoMakeDictArg(fieldvals))
+        cursor.execute(f"INSERT INTO {self.tableName} VALUES ({self.__FormatFieldParam()})", self.__autoMakeDictArg(fieldvals))
 
         # commit changes
         conn.commit()
@@ -70,7 +70,7 @@ class DBFuncs:
         cursor = conn.cursor()
 
         # Execute the SQL statement to get all the records
-        cursor.execute(f"SELECT * FROM {self.tablename}")
+        cursor.execute(f"SELECT * FROM {self.tableName}")
 
         # Storing the fetched data into a variable
         records = cursor.fetchall()
@@ -84,7 +84,7 @@ class DBFuncs:
         return records
 
     def addTableName(self, tablename):
-        self.tablename = tablename
+        self.tableName = tablename
 
 
     def deleteAllRecords(self):
@@ -95,7 +95,7 @@ class DBFuncs:
         cursor = conn.cursor()
 
         # Execute the SQL statement to get all the records
-        cursor.execute(f"DELETE FROM {self.tablename}")
+        cursor.execute(f"DELETE FROM {self.tableName}")
 
         # Committing changes
         conn.commit()
@@ -112,7 +112,7 @@ class DBFuncs:
         cursor = conn.cursor()
 
         # Execute the SQL statement to get all the records
-        cursor.execute(f"SELECT * FROM {self.tablename} WHERE {self.primaryKey} = '{primarykeyvalue}'")
+        cursor.execute(f"SELECT * FROM {self.tableName} WHERE {self.primaryKey} = '{primarykeyvalue}'")
 
         # Committing changes
         conn.commit()
@@ -120,7 +120,7 @@ class DBFuncs:
         # Close the connection with the database
         conn.close()
 
-
+    
     def __autoMakeDictArg(self, fieldvals) -> dict:
         dict_arg = {}
         for i in range(len(self.fields)):
